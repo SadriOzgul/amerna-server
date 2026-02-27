@@ -61,14 +61,12 @@ Add two integers on the Node.js server.<br />
 		document.getElementById("fetch-2plus2-result").innerHTML = responseText + " ("+fetch2plus2Counter+")"
 	}
 
-	// ADD THIS FUNCTION (Dice Roller)
 	async function fetchDice() {
-		const response = await fetch("/roll-dice");
-		const diceValue = await response.text();
-		document.getElementById("dice-result").innerHTML =
-			"Dice rolled: " + diceValue;
+  			const baseUrl = document.getElementById("urlInput").value.replace(/\/$/, "");
+  			const response = await fetch(baseUrl + "/roll-dice");
+  			const diceValue = await response.text();
+  			document.getElementById("dice-result").innerHTML = "Dice rolled: " + diceValue;
 	}
-
 
 	async function addTwoIntegers() {
 		const x = document.getElementById("x-value").value
