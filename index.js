@@ -10,10 +10,7 @@ const port = process.env.PORT || 3000
 const majorVersion = 1
 const minorVersion = 3
 
-app.get("/roll-dice", (req, res) => {
-  const dice = Math.floor(Math.random() * 6) + 1;
-  res.send(dice.toString());
-});
+
 
 // Use Express to publish static HTML, CSS, and JavaScript files that run in the browser. 
 app.use(express.static(__dirname + '/static'))
@@ -45,6 +42,11 @@ app.get('/2plus2', (request, response) => {
 	response.type('text/plain')
 	response.send('4')
 })
+
+app.get("/roll-dice", (request, response) => {
+  const dice = Math.floor(Math.random() * 6) + 1;
+  res.send(dice.toString());
+});
 
 // Add x and y which are both passed in on the URL. 
 app.get('/add-two-integers', (request, response) => {
