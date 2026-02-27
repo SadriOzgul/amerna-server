@@ -45,7 +45,8 @@ app.get('/2plus2', (request, response) => {
 
 app.get("/roll-dice", (request, response) => {
   const dice = Math.floor(Math.random() * 6) + 1;
-  res.send(dice.toString());
+  response.type("text/plain");
+  response.send(dice.toString());
 });
 
 // Add x and y which are both passed in on the URL. 
